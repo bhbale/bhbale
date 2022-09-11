@@ -1,3 +1,54 @@
+@font-face {
+    font-family: 'Quiapo';
+    src: url('assets/fonts/Quiapo.woff2') format('woff2'),
+        url('assets/fonts/Quiapo.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
 body {
-    background: brown;
+    font-size: 10px;
+    font-family: 'Quiapo', cursive;
+    margin: 0;
+    padding: 0;
+}
+
+main::before {
+    content: '';
+    display: inline-block;
+    width: 88%;
+    height: 77%;
+    background: #FFE600;
+    margin: 6%;
+}
+
+section {
+    position: absolute;
+    margin: 2.5%;
+}
+
+section:first-child {
+    top: 0;
+}
+
+section:last-child {
+    bottom: 0;
+}
+
+h1, h2, h3 {
+    font-size: 6.6vw;
+    margin: 0;
+}
+
+h1 {
+    color: #FF0000;
+}
+
+h2 {
+    color: #0500FF;
+}
+
+h3 {
+    color: black;
 }
