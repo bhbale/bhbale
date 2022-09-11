@@ -8,19 +8,20 @@
 }
 
 body {
-    font-size: 10px;
     font-family: 'Quiapo', cursive;
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 
 main::before {
     content: '';
     display: inline-block;
-    width: 88%;
-    height: 77%;
+    width: 100%;
+    height: 100%;
     background: #FFE600;
-    margin: 6%;
+    margin: 0;
+    animation: backgroundChange 1.5s cubic-bezier(1, 0, 0, 1) 0s forwards;
 }
 
 section {
@@ -30,10 +31,14 @@ section {
 
 section:first-child {
     top: 0;
+    opacity: 0;
+    animation: topSection 2s cubic-bezier(1, 0, 0, 1) 1.5s forwards;
 }
 
 section:last-child {
     bottom: 0;
+    opacity: 0;
+    animation: bottomSection 2s cubic-bezier(1, 0, 0, 1) 1.5s forwards;
 }
 
 h1, h2, h3 {
@@ -51,4 +56,42 @@ h2 {
 
 h3 {
     color: black;
+}
+
+@keyframes topSection {
+	from {
+		opacity: 1;
+		top: -50%;
+	}
+
+	to {
+		opacity: 1;
+		top: 0;
+	}
+}
+
+@keyframes bottomSection {
+	from {
+		opacity: 1;
+        bottom: -50%;
+	}
+
+	to {
+		opacity: 1;
+        bottom: 0;
+	}
+}
+
+@keyframes backgroundChange {
+    from {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+    }
+
+    to {
+        margin: 6%;
+        width: 88%;
+        height: 77%;
+    }
 }
