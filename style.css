@@ -7,20 +7,42 @@
     font-display: swap;
 }
 
+:root {
+    --blue: #0500FF;
+    --yellow: #FFE600;
+    --red: #FF0000;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Quiapo', cursive;
+    text-rendering: optimizeLegibility;
+    line-height: normal;
     margin: 0;
     padding: 0;
     overflow: hidden;
 }
 
-main::before {
-    content: '';
-    display: inline-block;
+main {
+    display: block;
     width: 100%;
     height: 100%;
-    background: #FFE600;
-    margin: 0;
+    position: relative;
+}
+
+main::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: var(--yellow);
     animation: backgroundChange 1.5s cubic-bezier(1, 0, 0, 1) 0s forwards;
 }
 
@@ -29,13 +51,14 @@ section {
     margin: 2.5%;
 }
 
-section:first-child {
+section:nth-child(1) {
     top: 0;
     opacity: 0;
     animation: topSection 2s cubic-bezier(1, 0, 0, 1) 1.5s forwards;
 }
 
-section:last-child {
+section:nth-child(2) {
+    width: 80%;
     bottom: 0;
     opacity: 0;
     animation: bottomSection 2s cubic-bezier(1, 0, 0, 1) 1.5s forwards;
@@ -47,16 +70,62 @@ h1, h2, h3 {
 }
 
 h1 {
-    color: #FF0000;
+    color: var(--blue);
 }
 
 h2 {
-    color: #0500FF;
+    color: var(--red);
 }
 
 h3 {
     color: black;
 }
+
+a.dark-mode-toggle {
+    position: absolute;
+    aspect-ratio : 1/1;
+    width: 12%;
+    right: 0%;
+    bottom: 0%;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: inset 6vh 0 var(--yellow);
+    transform: rotate(225deg);
+    transition: box-shadow 0.5s cubic-bezier(1, 0, 0, 1);
+}
+
+a.dark-mode-toggle:hover {
+    box-shadow: inset 4vh 0 var(--blue);
+    
+}
+
+/* Dark mode styles */
+
+body.dark-mode {
+    background: black;
+}
+
+body.dark-mode main::before {
+    background: var(--blue);
+}
+
+body.dark-mode h1 {
+    color: var(--yellow)
+}
+
+body.dark-mode h3 {
+    color: white;
+}
+
+body.dark-mode a.dark-mode-toggle {
+    box-shadow: inset 6vh 0 var(--blue);
+}
+
+body.dark-mode a.dark-mode-toggle:hover {
+    box-shadow: inset 4vh 0 var(--yellow);
+}
+
+/* Animations */
 
 @keyframes topSection {
 	from {
@@ -86,12 +155,10 @@ h3 {
     from {
         width: 100%;
         height: 100%;
-        margin: 0;
     }
 
     to {
-        margin: 6%;
         width: 88%;
-        height: 77%;
+        height: 78%;
     }
 }
