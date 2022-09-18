@@ -26,13 +26,6 @@ body {
     overflow: hidden;
 }
 
-main {
-    display: block;
-    width: 100%;
-    height: 100%;
-    position: relative;
-}
-
 main::before {
     content: '';
     display: block;
@@ -40,8 +33,8 @@ main::before {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
+    width: 88%;
+    height: 78%;
     background: var(--yellow);
     animation: backgroundChange 1.5s cubic-bezier(1, 0, 0, 1) 0s forwards;
 }
@@ -53,14 +46,13 @@ section {
 
 section:nth-child(1) {
     top: 0;
-    opacity: 0;
+    opacity: 1;
     animation: topSection 2s cubic-bezier(1, 0, 0, 1) 1.5s forwards;
 }
 
 section:nth-child(2) {
-    width: 80%;
     bottom: 0;
-    opacity: 0;
+    opacity: 1;
     animation: bottomSection 2s cubic-bezier(1, 0, 0, 1) 1.5s forwards;
 }
 
@@ -94,10 +86,11 @@ a.dark-mode-toggle {
     transition: box-shadow 0.5s cubic-bezier(1, 0, 0, 1);
 }
 
-a.dark-mode-toggle:hover {
+/* a.dark-mode-toggle:hover {
     box-shadow: inset 4vh 0 var(--blue);
-    
-}
+} */
+
+
 
 /* Dark mode styles */
 
@@ -110,7 +103,7 @@ body.dark-mode main::before {
 }
 
 body.dark-mode h1 {
-    color: var(--yellow)
+    color: var(--yellow);
 }
 
 body.dark-mode h3 {
@@ -121,13 +114,43 @@ body.dark-mode a.dark-mode-toggle {
     box-shadow: inset 6vh 0 var(--blue);
 }
 
-body.dark-mode a.dark-mode-toggle:hover {
+/* body.dark-mode a.dark-mode-toggle:hover {
     box-shadow: inset 4vh 0 var(--yellow);
+} */
+
+/* Media Queries */
+
+@media (max-width: 768px) {
+    h1, h2, h3 {
+        font-size: 11.8vw;
+    }
+
+    span {
+        display: block;
+    }
+
+    main::before {
+        width: 84%;
+        height: 88%;
+    }
+
+    section {
+        margin: 5%;
+    }
+
+    a.dark-mode-toggle {
+        width: 18%;
+        box-shadow: inset 2.5vh 0 var(--yellow);
+    }
+
+    body.dark-mode a.dark-mode-toggle {
+        box-shadow: inset 2.5vh 0 var(--blue);
+    }
 }
 
 /* Animations */
 
-@keyframes topSection {
+/* @keyframes topSection {
 	from {
 		opacity: 1;
 		top: -50%;
@@ -161,4 +184,4 @@ body.dark-mode a.dark-mode-toggle:hover {
         width: 88%;
         height: 78%;
     }
-}
+} */
