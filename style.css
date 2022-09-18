@@ -28,7 +28,6 @@ body {
 
 main::before {
     content: '';
-    display: block;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -39,18 +38,28 @@ main::before {
     animation: backgroundChange 1.5s cubic-bezier(1, 0, 0, 1) 0s forwards;
 }
 
+.smiley::before {
+    content: ':-D';
+    font-size: 6.6vw;
+    color: var(--blue);
+    position: absolute;
+    top: 2.5%;
+    right: 2.5%;
+    transform: rotate(90deg);
+}
+
 section {
     position: absolute;
     margin: 2.5%;
 }
 
-section:nth-child(1) {
+section:nth-child(2) {
     top: 0;
     opacity: 1;
     animation: topSection 2s cubic-bezier(1, 0, 0, 1) 1.5s forwards;
 }
 
-section:nth-child(2) {
+section:nth-child(3) {
     bottom: 0;
     opacity: 1;
     animation: bottomSection 2s cubic-bezier(1, 0, 0, 1) 1.5s forwards;
@@ -73,7 +82,7 @@ h3 {
     color: black;
 }
 
-a.dark-mode-toggle {
+.dark-mode-toggle {
     position: absolute;
     aspect-ratio : 1/1;
     width: 12%;
@@ -81,16 +90,15 @@ a.dark-mode-toggle {
     bottom: 0%;
     background: transparent;
     border-radius: 50%;
-    box-shadow: inset 6vh 0 var(--yellow);
+    box-shadow: inset 3vw 0 var(--yellow);
     transform: rotate(225deg);
-    transition: box-shadow 0.5s cubic-bezier(1, 0, 0, 1);
+    cursor: pointer;
+    /* transition: box-shadow 0.5s cubic-bezier(1, 0, 0, 1); */
 }
 
 /* a.dark-mode-toggle:hover {
     box-shadow: inset 4vh 0 var(--blue);
 } */
-
-
 
 /* Dark mode styles */
 
@@ -102,6 +110,10 @@ body.dark-mode main::before {
     background: var(--blue);
 }
 
+body.dark-mode .smiley::before {
+    color: var(--yellow);
+}
+
 body.dark-mode h1 {
     color: var(--yellow);
 }
@@ -110,8 +122,8 @@ body.dark-mode h3 {
     color: white;
 }
 
-body.dark-mode a.dark-mode-toggle {
-    box-shadow: inset 6vh 0 var(--blue);
+body.dark-mode .dark-mode-toggle {
+    box-shadow: inset 3vw 0 var(--blue);
 }
 
 /* body.dark-mode a.dark-mode-toggle:hover {
@@ -134,17 +146,23 @@ body.dark-mode a.dark-mode-toggle {
         height: 88%;
     }
 
+    .smiley::before {
+        font-size: 11.8vw;
+        top: 3%;
+        right: 5%;
+    }
+
     section {
         margin: 5%;
     }
 
-    a.dark-mode-toggle {
+    .dark-mode-toggle {
         width: 18%;
-        box-shadow: inset 2.5vh 0 var(--yellow);
+        box-shadow: inset 4vw 0 var(--yellow);
     }
 
-    body.dark-mode a.dark-mode-toggle {
-        box-shadow: inset 2.5vh 0 var(--blue);
+    body.dark-mode .dark-mode-toggle {
+        box-shadow: inset 4vw 0 var(--blue);
     }
 }
 
