@@ -4,7 +4,6 @@
         url('assets/fonts/Quiapo.woff') format('woff');
     font-weight: 900;
     font-style: normal;
-    font-display: optional;
 }
 
 :root {
@@ -19,6 +18,7 @@
 
 body {
     font-family: 'Quiapo', cursive;
+    font-display: optional;
     text-rendering: optimizeLegibility;
     line-height: normal;
     margin: 0;
