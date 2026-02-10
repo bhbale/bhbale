@@ -39,7 +39,7 @@ main::before {
 }
 
 .smiley::before {
-    content: ':-D';
+    content: ';-D';
     font-size: 6.6vw;
     color: var(--blue);
     position: absolute;
